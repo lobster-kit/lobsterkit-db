@@ -14,18 +14,21 @@
   "files": ["dist", "README.md"],
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --clean",
-    "dev": "tsup src/index.ts --format esm --dts --watch"
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsup": "^8.3.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.0"
   },
   "keywords": ["postgres", "postgresql", "database", "agents", "lobsterkit"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobsterkit/lobsterdb"
+    "url": "https://github.com/lobster-kit/lobsterkit-db"
   }
 }
