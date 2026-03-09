@@ -1,16 +1,33 @@
 {
-  "name": "lobsterkit-db",
-  "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "name": "@lobsterkit/db",
+  "version": "0.1.0",
+  "description": "LobsterDB SDK — managed PostgreSQL for agents",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist", "README.md"],
   "scripts": {
-    "build": "turbo build",
-    "typecheck": "turbo typecheck",
-    "test": "turbo test",
-    "lint": "turbo lint",
-    "clean": "turbo clean"
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "keywords": ["postgres", "postgresql", "database", "agents", "lobsterkit"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lobster-kit/lobsterkit-db"
   },
   "devDependencies": {
-    "turbo": "^2.8.10",
-    "typescript": "^5.7.3"
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.0"
   }
 }
