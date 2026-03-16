@@ -103,6 +103,10 @@ Get account info and usage.
 | Pro | $49/mo | 10 | 25 GB | 100 | Daily (7d) + PITR |
 | Scale | $199/mo | Unlimited | 200 GB | 500 | Continuous PITR 30d |
 
+## LobsterKit Ecosystem
+
+`@lobsterkit/db` is part of the LobsterKit ecosystem alongside [@lobsterkit/vault](https://www.npmjs.com/package/@lobsterkit/vault) and [@lobsterkit/lobstermail](https://www.npmjs.com/package/@lobsterkit/lobstermail). Link accounts across products at signup with a `linkToken` to get a single Stripe customer and an automatic 15% multi-product discount.
+
 ## LobsterVault Integration
 
 Store your database connection string automatically:
