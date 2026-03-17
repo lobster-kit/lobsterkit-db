@@ -57,6 +57,14 @@ List all databases on your account (no connection strings).
 
 Get a database by ID, including its connection string.
 
+### `db.query(databaseId, sql, params?)` -> `QueryResult`
+
+Execute a SQL query against a database via the HTTP API. No pg client required — results come back as JSON. Supports multi-statement SQL (semicolon-separated); the result of the last statement is returned.
+
+```ts
+const { rows } = await db.query(id, 'SELECT * FROM users WHERE active = $1', [true]);
+```
+
 ### `db.delete(id)`
 
 Delete a database and all its data permanently.
