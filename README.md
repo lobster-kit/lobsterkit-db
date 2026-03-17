@@ -57,9 +57,9 @@ List all databases on your account (no connection strings).
 
 Get a database by ID, including its connection string.
 
-### `db.query(databaseId, sql, params?)` -> `QueryResult`
+### `db.query(databaseId, sql, params?)` → `{ rows, rowCount, fields, truncated }`
 
-Execute a SQL query against a database via the HTTP API. No pg client required — results come back as JSON. Supports multi-statement SQL (semicolon-separated); the result of the last statement is returned.
+Execute a SQL query against a database via the HTTP API. No pg client required — results come back as JSON. Supports multi-statement SQL (semicolon-separated); only the last statement's result is returned and intermediate results are discarded.
 
 ```ts
 const { rows } = await db.query(id, 'SELECT * FROM users WHERE active = $1', [true]);
@@ -113,7 +113,7 @@ Get account info and usage.
 
 ## LobsterKit Ecosystem
 
-`@lobsterkit/db` is part of the LobsterKit ecosystem alongside [@lobsterkit/vault](https://www.npmjs.com/package/@lobsterkit/vault) and [@lobsterkit/lobstermail](https://www.npmjs.com/package/@lobsterkit/lobstermail). Link accounts across products at signup with a `linkToken` to get a single Stripe customer and an automatic 15% multi-product discount.
+`@lobsterkit/db` is part of the LobsterKit ecosystem alongside [@lobsterkit/vault](https://www.npmjs.com/package/@lobsterkit/vault) and [@lobsterkit/lobstermail](https://www.npmjs.com/package/@lobsterkit/lobstermail). Link accounts across products at signup with a `linkToken` — passed via the API (`POST /v1/signup`) or the dashboard signup flow, not the SDK's `signup()` helper — to get a single Stripe customer and an automatic multi-product discount (see [pricing](https://theclawdepot.com/pricing)).
 
 ## LobsterVault Integration
 
